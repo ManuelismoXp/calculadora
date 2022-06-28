@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="assets/image/icons/favico.png">
+
+    <title>Calculador Johnson</title>
+
+    <link rel="stylesheet" href="assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/plugins/font-awesome-4.7.0/fonts/fontawesome-webfont.eot">
+    <link rel="stylesheet" href="assets/plugins/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf">
+    <link rel="stylesheet" href="assets/plugins/font-awesome-4.7.0/fonts/fontawesome-webfont.woff">
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap-utilities.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-3" id="calculadora">
+            <div class="row mt-2">
+                <div class="col-6">
+                    <h4 class="modal-title">
+                        Calculadora<sup><small>1.3.1</small></sup>
+                    </h4>
+                </div>
+                <div class="col-6">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="fa fa-calculator" style="height: 25px;"></i></span>
+                        </div>
+                        <select class="form-control" id="tipoCalculadora" style="width: 80%;">
+                            <option value="normal" selected>Normal</option>
+                            <option value="cientifica">Cientifica</option>
+                            <option value="programador">Programador</option>
+                        </select>
+                      </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input type="text" autofocus value="" class="form-control mt-2" placeholder="0" id="tela" />
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-4">
+                            <button class="btn btn-danger btn-block" id="btn-limpar"><i class="fa fa-eraser"></i></button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-block" id="btn-apagar"><i class="fa fa-terminal"></i></button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                       
+                        <div class="col-12">
+                            <button class="btn btn-primary btn-block btn-abs">	&plusmn;</button>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-lg btn-block btn-numero" numero="7">7</button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-lg btn-block btn-numero" numero="8">8</button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-lg btn-block btn-numero" numero="9">9</button>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-lg btn-block btn-numero" numero="4">4</button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-lg btn-block btn-numero" numero="5">5</button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-lg btn-block btn-numero" numero="6">6</button>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-lg btn-block btn-numero" numero="1">1</button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-lg btn-block btn-numero" numero="2">2</button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-lg btn-block btn-numero" numero="3">3</button>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-block btn-lg btn-numero" numero="0">0</button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-info btn-block btn-lg" id="btn-igual">=</button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-block btn-lg btn-numero" numero=".">.</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-primary btn-lg btn-block btn-operador" operador="+">+</button>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <button class="btn btn-primary btn-lg btn-block btn-operador" operador="-">-</button>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <button class="btn btn-primary btn-lg btn-block btn-operador" operador="*">*</button>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <button class="btn btn-primary btn-lg btn-block btn-operador" operador="/">/</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2 cientifica">
+                <div class="col-12">
+                    <hr>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col-4">
+                                    <button class="btn btn-info btn-block" id="btn-sqr"> <sup>2</sup>v<sup>-</sup></button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn btn-info btn-block btn-operador" operador="pot">x<sup>y</sup></button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn btn-info btn-block">!</button>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-4">
+                                    <button class="btn btn-info btn-block">sin</button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn btn-info btn-block">cos</button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn btn-info btn-block">tan</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <button class="btn btn-info btn-block">%</button>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-12">
+                                            <button class="btn btn-info btn-block">tan<sup>-1</sup></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2 programador">
+                <div class="col-12">
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="input-group mb-3">
+                                        <select class="form-control" id="baseOrigem" style="width: 30%;">
+                                            <option value="" selected>Base de origem</option>
+                                            <option value="dec">Decimal</option>
+                                            <option value="bin">Binário</option>
+                                            <option value="oct">Octal</option>
+                                            <option value="hex">Hexadecimal</option>
+                                        </select>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-exchange" style="height: 25px;"></i></span>
+                                          </div>
+                                          <select class="form-control" id="baseDestino" style="width: 30%;">
+                                              <option value="" selected>Base de destino</option>
+                                              <option value="dec">Decimal</option>
+                                              <option value="bin">Binário</option>
+                                              <option value="oct">Octal</option>
+                                              <option value="hex">Hexadecimal</option>
+                                          </select>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2" id="hexdecimal-btn">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-block btn-numero" numero="A">A</button>
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-block btn-numero" numero="B">B</button>
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-block btn-numero" numero="C">C</button>
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-block btn-numero" numero="D">D</button>
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-block btn-numero" numero="E">E</button>
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-block btn-numero" numero="F">F</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <button class="btn btn-block btn-md btn-info" id="btn-converter"><i class="fa fa-exchange"></i> Converter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-5"></div>
+    </div>
+
+    <script src="assets/plugins/bootstrap/js/jquery.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="assets/plugins/bootstrap/js/popover.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

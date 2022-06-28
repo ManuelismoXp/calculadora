@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    padding: 0;
+    padding-top: 10%;
+}
+
+.btn{
+    width: 100%;
+    border-radius: 0 !important;
+    border: none;
+}
+
+input{
+    border: 1px solid #888 !important;
+    text-align: right;
+    color: #888 !important;
+    border-radius: 0 !important;
+}
+
+small{
+    font-size: 0.5em;
+}
+
+#calculadora{
+    border: 1px solid #888;
+    padding: 15px;
+    background-color: #eee;
+    box-shadow: 5px 5px 5px #ccc;
+    padding-bottom: 25px;
+}
+
+.copyright{
+    text-align: right;
+    font-size: 0.7em;
+}
+
+.autor{
+    text-decoration: none;
+    color: green;
+}
+
+.btn-trigo{
+    background-color: #18a3ff;
+}
+
+.btn:hover{
+    color: red;
+}
+
+.border-red-error{
+    border: 1px solid red !important;
+}
+
+.cientifica, .programador, #hexdecimal-btn{
+    display: none;
+}
+
+.valores{
+    cursor: pointer;
+    padding: 5px;
+}
+
+.form-control, .input-group-text{
+    border-radius: 0 !important;
+}
