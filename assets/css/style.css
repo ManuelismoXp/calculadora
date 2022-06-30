@@ -63,3 +63,12 @@ small{
 .form-control, .input-group-text{
     border-radius: 0 !important;
 }
+
+#btn-ola{
+    border: 1px solid rgb(187, 7, 7);
+    width: 100%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: rgb(187, 7, 7);
+    color: #fff;
+}

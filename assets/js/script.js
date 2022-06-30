@@ -18,19 +18,25 @@ $(document).ready(function(){
         var tipo = $("#tipoCalculadora").val()
         var tecla = event.key.charCodeAt()
 
+        
+
         if((tecla == 46 || (tecla >= 48 && tecla <= 49)) && (tipo == 'programador') && baseOrigem == 'bin'){
+            somTeclado()
             return true
         }
         
         if((tecla == 46 || (tecla >= 48 && tecla <= 55)) && (tipo == 'programador') && baseOrigem == 'oct'){
+            somTeclado()
             return true
         }
 
         if((tecla == 46 || (tecla >= 48 && tecla <= 57)) && (tipo == 'normal' || tipo == 'cientifica' || (tipo == 'programador' && baseOrigem == 'dec'))){
+            somTeclado()
             return true
         }
 
         if((tecla == 46 || (tecla >= 65 && tecla <= 70) || (tecla >= 97 && tecla <= 102) || (tecla >= 48 && tecla <= 57)) && (tipo == 'programador')  && baseOrigem == 'hex'){
+            somTeclado()
             return true
         }
 
@@ -41,6 +47,8 @@ $(document).ready(function(){
     // Botões numericos
     $('.btn-numero').click(function(){
 
+        somTeclado()
+        
         $('#tela').removeClass('border-red-error')
 
         /** valida resultado */
@@ -92,13 +100,17 @@ $(document).ready(function(){
 
     // limpar toda tela
     $("#btn-limpar").click(function(){
+        somEliminar()
         $('#tela').removeClass('border-red-error')
         $('#tela').val('').focus()
+        /* if (window.confirm("Deseja realmente limpar a tela?")) {
+            
+        } */
     })
 
     // apagar digito a digito
     $("#btn-apagar").click(function(){
-
+        somEliminar()
         $('#tela').removeClass('border-red-error')
 
         var valor_actual = $('#tela').val()
@@ -289,6 +301,10 @@ $(document).ready(function(){
     $('#baseDestino').change(function(){
         $('#tela').val(garbage).focus()
     })
+
+    $('#btn-ola').click(function(){
+        
+    })
     
 })
 
@@ -335,6 +351,28 @@ function converterBases(baseOrigem, baseDestino, numero){
                     break;
                     
             }
+            break;
+        case 'bin':
+            switch(baseDestino){
+                case 'dec':
+                    resultado = outraParaDecimal(2, numero)
+                    break;
+            }
+            break;
+        case 'oct':
+            switch(baseDestino){
+                case 'dec':
+                    resultado = outraParaDecimal(8, numero)
+                    break;
+            }
+            break;
+        case 'hex':
+            switch(baseDestino){
+                case 'dec':
+                    resultado = outraParaDecimal(16, numero)
+                    break;
+            }
+            break;
     }
 
     return resultado
@@ -364,6 +402,20 @@ function decimaParaOutra(baseDestino, numero){
 
 }
 
+// Converterde binario ara decimal
+function outraParaDecimal(baseOrigem, numero){
+    
+    const numeros = (numero.split('')).reverse()
+    var resultado = 0
+
+    numeros.forEach((num, index) => {
+        if(baseOrigem == 16) num = equivalencia(num)
+        resultado += Number(num) * Math.pow(baseOrigem, index) 
+    })
+
+    return resultado
+}
+
 // Inverter string
 function reverse(str){
     var strArr = (str.split('')).reverse()
@@ -375,11 +427,15 @@ function reverse(str){
 function equivalencia(numero){
     var letrasHexa = [{ letra: 'A', numero: 10 },{ letra: 'B', numero: 11 },{ letra: 'C', numero: 12 },
                       { letra: 'D', numero: 13 },{ letra: 'E', numero: 14 },{ letra: 'F', numero: 15 }]
+    
     var equivalente = numero
 
     letrasHexa.forEach((letra)=>{
         if(letra.numero == numero){
             equivalente = letra.letra
+        }
+        if(letra.letra == numero){
+            equivalente = letra.numero
         }
     })
 
@@ -402,4 +458,16 @@ function validaBasePreeenchida(baseOrigem, baseDestino){
     $('#tela').focus()
     return
 
+}
+
+// som ao clicar nas teclas
+function somTeclado(){
+    const music = new Audio('assets/audio/eliminar.mp3')
+    music.play()
+}
+
+// som ao clicar tecla de apagar e limpar
+function somEliminar(){
+    const music = new Audio('assets/audio/teclado.mp3')
+    music.play()
 }
